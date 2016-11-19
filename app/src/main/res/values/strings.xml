@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Smoke Detector App</string>
+    <string name="hint">Write the mobile number:</string>
+    <string name="tag">\u00A9 Pronoy 2016</string>
+</resources>
