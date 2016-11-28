@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
     EditText phone;
     Button button;
     TextView label;
-    String data="";
+    String data=""; //The bluetooth data to be stored here. 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
                 try {
                     findBt();
                     OpenBt();
+                    // you can even check the data and then invoke the method to send sms. DATA: "data"
                     SendSms(data);
                 }
                 catch (Exception ignored){}
@@ -104,7 +105,8 @@ public class MainActivity extends AppCompatActivity {
                                     bufferPosition=0;
                                     handler.post(new Runnable(){
                                         public void run(){
-                                            label.setText(data);
+                                            label.setText(data);  //there is actually no need to display the data, you can directly
+                                                                  //check the data and then invoke the method to send sms from here. 
                                         }
                                     });
                                 }
@@ -119,7 +121,7 @@ public class MainActivity extends AppCompatActivity {
         workerThread.start();
     }
     public void SendSms(String d){
-        d="";
+        d=""; // You can either send the text that came from the bluetooth "d" or create a new String sms.
         d="There may be a fire in your house, please CHECK ASAP!";
         String phoneNumber=phone.getText().toString();
         if(phoneNumber.equalsIgnoreCase("")){
